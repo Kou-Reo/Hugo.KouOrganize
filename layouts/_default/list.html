@@ -1,8 +1,15 @@
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
   {{ .Content }}
+
   {{ range .Pages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-    {{ .Summary }}
+    <article class="mb-8">
+      {{ with .Params.itemimage }}
+        <img src="{{ . | relURL }}" alt="Banner for {{ $.Title }}" class="w-full h-auto rounded-lg mb-4">
+      {{ end }}
+
+      <h2><a href="{{ .RelPermalink }}" class="text-2xl font-bold">{{ .LinkTitle }}</a></h2>
+      <p>{{ .Summary }}</p>
+    </article>
   {{ end }}
 {{ end }}
