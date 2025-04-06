@@ -2,6 +2,6 @@
   {{ .Content }}
   {{ range site.Sections }}
     <h2><a href="{{ .Permalink  }}">{{ .Title }}</a></h2>
-    {{ .Summary }}
+    {{ .Description }}
   {{ end }}
 {{ end }}
